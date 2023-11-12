@@ -43,16 +43,21 @@ $('.submit').click(function (e) {
 
     let totalPrice = 0;
     let talkString = `@지원인스티튜트 10만원 이상 교재 구매 건 입금 요청드립니다.
-    금액:
+    금액: 
     계좌: 국민 67149011004119
     예금주: (주)교보문고
 
     중복구매 확인 완료
     입금기한 금일 내
     `;
+
     let check = $('#research-check').prop('checked');
+    let count = 0;
     if (check == true) {
+        count += 1;
         talkString += '연구용 지결서 작성 완료 \n \n';
+        $('#research-check').prop('checked', false);
+    } else if (check == true && count > 1) {
         $('#research-check').prop('checked', false);
     }
 
