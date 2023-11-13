@@ -34,11 +34,6 @@ $('.submit').click(function (e) {
 
     $('#hub-string').text(hubString);
 
-    $('#submit').attr(
-        'onclick',
-        window.open(`https://search.kyobobook.co.kr/search?keyword=${bookName}`)
-    );
-
     $('#first-text').val('');
 
     let totalPrice = 0;
