@@ -34,16 +34,22 @@ $('.submit').click(function (e) {
 
     $('#hub-string').text(hubString);
 
+    // $('#submit').attr(
+    //     'onclick',
+    //     window.open(`https://search.kyobobook.co.kr/search?keyword=${bookName}`)
+    // );
+
     $('#first-text').val('');
 
     let totalPrice = 0;
-    let talkString = `@지원인스티튜트 10만원 이상 교재 구매 건 입금 요청드립니다.
+    let talkString = `10만원 이상 교재 구매 건 입금 요청드립니다.
     금액: 
     계좌: 국민 67149011004119
     예금주: (주)교보문고
 
     중복구매 확인 완료
     입금기한 금일 내
+
     `;
 
     let check = $('#research-check').prop('checked');
@@ -56,10 +62,31 @@ $('.submit').click(function (e) {
         $('#research-check').prop('checked', false);
     }
 
+    let under10 = $('#under10-check').prop('checked');
+    if (under10 == true) {
+        talkString = `10만원 미만(교보캐시) 교재 구매 건 입금 요청드립니다.
+        금액: 
+        계좌: 국민 67149011004119
+        예금주: (주)교보문고
+    
+        중복구매 확인 완료
+        입금기한 금일 내
+        `;
+        under10 = $('#under10-check').prop('checked', false);
+    }
+
     for (let buyList of buyLists) {
         totalPrice += parseInt(buyList.할인가);
         talkString += `${buyList.학생명} - ${buyList.책이름}\n`;
     }
     talkString = talkString.replace('금액:', `금액: ${totalPrice}`);
     $('#research-book').html(talkString);
+});
+
+$('#copy-btn').click(function (e) {
+    e.preventDefault();
+    let copyText = $('#research-book');
+    content.select();
+    document.execCommand('copy');
+    alert('복사완료');
 });
