@@ -65,7 +65,15 @@ $('.submit').click(function (e) {
 
     let under10 = $('#under10-check').prop('checked');
     if (under10 == true) {
-        talkString = `교보 캐시로 구매`;
+        talkString = `
+        교보캐시 구매
+    금액: 
+
+    중복구매 확인 완료
+    입금기한 금일 내
+    허브 입력 완료
+    
+    `;
         under10 = $('#under10-check').prop('checked', false);
     }
 
