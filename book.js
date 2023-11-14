@@ -64,14 +64,7 @@ $('.submit').click(function (e) {
 
     let under10 = $('#under10-check').prop('checked');
     if (under10 == true) {
-        talkString = `10만원 미만(교보캐시) 교재 구매 건 입금 요청드립니다.
-        금액: 
-        계좌: 국민 67149011004119
-        예금주: (주)교보문고
-    
-        중복구매 확인 완료
-        입금기한 금일 내
-        `;
+        talkString = `교보 캐시로 구매`;
         under10 = $('#under10-check').prop('checked', false);
     }
 
